@@ -31,7 +31,7 @@ jobs:
         id: jacoco
         uses: madrapps/jacoco-report@v1.3
         with:
-            paths: ./mst-automation-report.xml
+            paths: ./mst-automation-report.xml,mst-gateway-report.xml
             token: ${{ secrets.GITHUB_TOKEN }}
             min-coverage-overall: 1
             min-coverage-changed-files: 1
