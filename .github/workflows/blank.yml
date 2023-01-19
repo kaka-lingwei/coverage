@@ -36,10 +36,10 @@ jobs:
         name: upload-to-codecov
         with:
           #token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
-          #files: ./coverage1.xml,./coverage2.xml # optional
+          files: ./mst-automation-report.xml,./mst-gateway-report.xml # optional
           flags: unittests # optional
           name: codecov-umbrella # optional
           fail_ci_if_error: true # optional (default = false)
           verbose: true # optional (default = false)
-          directory: ./coverage/
-          path_to_write_report: ./coverage/codecov_report.txt
+          #directory: ./coverage/coverage
+          #path_to_write_report: codecov_report.txt
