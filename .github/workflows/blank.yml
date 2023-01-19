@@ -34,14 +34,11 @@ jobs:
           mkdir xml-report
           cp -r *.xml xml-report/
           pwd
-      - uses: codecov/codecov-action@v3
-        name: upload-to-codecov
-        with:
-          #token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
-          files: ./mst-automation-report.xml,./mst-gateway-report.xml # optional
-          flags: unittests # optional
-          name: codecov-umbrella # optional
-          fail_ci_if_error: true # optional (default = false)
-          verbose: true # optional (default = false)
-          #directory: ./xml-report
-          #path_to_write_report: codecov_report.txt
+       - name: Add coverage to PR
+          id: jacoco
+          uses: madrapps/jacoco-report@v1.3
+          with:
+            paths: ./mst-automation-report.xml
+            token: ${{ secrets.GITHUB_TOKEN }}
+            min-coverage-overall: 1
+            min-coverage-changed-files: 1
