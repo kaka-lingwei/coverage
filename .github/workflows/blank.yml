@@ -23,10 +23,20 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      - uses: wei/wget@v1
+      - uses: carlosperate/download-file-action@v2
         name: download-coverage
         with:
-          args: -qO- https://onetest-opensource-oss.oss-us-west-1.aliyuncs.com/onetest/coverage/4cd5cafb-3a65-4e95-800f-3907a356c0b0/coverageReport.zip
+          file-url: 'https://onetest-opensource-oss.oss-us-west-1.aliyuncs.com/onetest/coverage/4cd5cafb-3a65-4e95-800f-3907a356c0b0/coverageReport.zip'
+          file-name: 'coverageReport.zip'
+          location: './coverage'
+      - name: unzip
+      - run: |
+          unzip coverageReport.zip
+          ls
+      - name: Print the file path (new-folder-to-be-created/new_filename.tar.gz)
+          run: echo "The file was downloaded to ${{ steps.download-coverage.outputs.file-path }}"
+
+
       - uses: codecov/codecov-action@v3
         name: upload-to-codecov
         with:
