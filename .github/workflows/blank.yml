@@ -36,7 +36,6 @@ jobs:
       - name: Print the file path (new-folder-to-be-created/new_filename.tar.gz)
           run: echo "The file was downloaded to ${{ steps.download-coverage.outputs.file-path }}"
 
-
       - uses: codecov/codecov-action@v3
         name: upload-to-codecov
         with:
