@@ -38,7 +38,7 @@ jobs:
         name: upload-to-codecov
         with:
           #token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
-          #files: ./mst-automation-report.xml,./mst-gateway-report.xml # optional
+          files: ./mst-automation-report.xml,./mst-gateway-report.xml # optional
           flags: unittests # optional
           name: codecov-umbrella # optional
           fail_ci_if_error: true # optional (default = false)
