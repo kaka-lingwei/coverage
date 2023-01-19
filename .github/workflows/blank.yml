@@ -29,7 +29,6 @@ jobs:
           file-url: 'https://onetest-opensource-oss.oss-us-west-1.aliyuncs.com/onetest/coverage/4cd5cafb-3a65-4e95-800f-3907a356c0b0/coverageReport.zip'
           file-name: 'coverageReport.zip'
           location: './coverage'
-      - name: unzip
       - run: |
           unzip coverageReport.zip
           ls
