@@ -24,11 +24,12 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      - uses: actions/schmiddim-wget-unzip@v2
+      - uses: wei/wget@v1
+        name: download-coverage
         with:
-          url: 'https://onetest-opensource-oss.oss-us-west-1.aliyuncs.com/onetest/coverage/4cd5cafb-3a65-4e95-800f-3907a356c0b0/coverageReport.zip'
-          destination: coverage
+          args: -qO- https://onetest-opensource-oss.oss-us-west-1.aliyuncs.com/onetest/coverage/4cd5cafb-3a65-4e95-800f-3907a356c0b0/coverageReport.zip
       - uses: codecov/codecov-action@v3
+        name: upload-to-codecov
         with:
           #token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
           #files: ./coverage1.xml,./coverage2.xml # optional
