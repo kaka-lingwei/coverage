@@ -24,14 +24,6 @@ jobs:
       - run: |
           ls
           pwd
-      - name: Add coverage to PR
-        id: jacoco
-        uses: madrapps/jacoco-report@v1.3
-        with:
-            paths: ./coverage.xml
-            token: ${{ secrets.GITHUB_TOKEN }}
-            min-coverage-overall: 1
-            min-coverage-changed-files: 1
 
       - uses: codecov/codecov-action@v3
         with:
