@@ -19,7 +19,7 @@ jobs:
       - uses: carlosperate/download-file-action@v2
         name: download-coverage
         with:
-          file-url: 'https://onetest-opensource-oss.oss-us-west-1.aliyuncs.com/onetest/coverage/4cd5cafb-3a65-4e95-800f-3907a356c0b0/coverageReport.zip'
+          file-url: 'https://onetest-opensource-oss.oss-us-west-1.aliyuncs.com/onetest/coverage/5b146481-5ad4-45b9-858e-6179bfd1255c/coverageReport.zip'
           file-name: 'coverageReport.zip'
       - run: |
           unzip coverageReport.zip
@@ -31,7 +31,9 @@ jobs:
         id: jacoco
         uses: madrapps/jacoco-report@v1.3
         with:
-            paths: ./mst-automation-report.xml,mst-gateway-report.xml
+            paths: ./openmessaging-report.xml,./controller-report.xml,./namesrv-report.xml,./broker-report.xml,./client-report.xml,./proxy-report.xml
             token: ${{ secrets.GITHUB_TOKEN }}
+            update-comment: RocketMQ Coverage Report
+            title: Coverage
             min-coverage-overall: 1
             min-coverage-changed-files: 1
