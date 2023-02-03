@@ -31,7 +31,7 @@ jobs:
         id: jacoco
         uses: madrapps/jacoco-report@v1.3
         with:
-            paths: ./openmessaging-report.xml,./controller-report.xml,./namesrv-report.xml,./broker-report.xml,./client-report.xml,./proxy-report.xml
+            paths: ./*.xml
             token: ${{ secrets.GITHUB_TOKEN }}
             update-comment: RocketMQ Coverage Report
             title: Coverage
